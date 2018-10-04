@@ -1,3 +1,22 @@
-<p>
-  battle works!
-</p>
+<div class="container-fluid bg">
+    <h1 class="text-white text-center">{{ battleName }}</h1>
+    <div class="row">
+        <div class="col">
+            <app-fit></app-fit>
+        </div>
+        <div class="col-auto">
+            <div class="row h-100 justify-content-center align-items-center">
+                <h1 class="text-white">VS</h1>
+            </div>
+
+        </div>
+        <div class="col">
+            <app-fit></app-fit>
+        </div>
+    </div>
+    <div class=" mt-3">
+        <div class="d-flex justify-content-center">
+            <app-judge></app-judge>
+        </div>
+    </div>
+</div>

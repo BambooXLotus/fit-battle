@@ -8,7 +8,9 @@ html {
   background-image: url('./assets/images/bg.jpg');
   /* Full height */
   height: 100%;
-  /* Center and scale the image nicely */
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
