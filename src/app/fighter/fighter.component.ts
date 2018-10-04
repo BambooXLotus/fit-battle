@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+
+import { FireBaseService } from './../fire-base.service';
+import { Fighter } from './fighter.model';
 
 @Component({
   selector: 'app-fighter',
@@ -6,10 +10,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./fighter.component.scss']
 })
 export class FighterComponent implements OnInit {
+  @Input()
+  id: string;
 
-  constructor() { }
+  @Input()
+  photo: string;
+
+  @Input()
+  title: string;
+
+  currentFighter: Observable<Fighter>;
+
+  constructor(private service: FireBaseService) {}
 
   ngOnInit() {
+    this.currentFighter = this.service.gitFighter(this.id);
   }
-
 }

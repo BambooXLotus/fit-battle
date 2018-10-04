@@ -1,17 +1,17 @@
-import { Fighter } from './fighter/fighter.model';
 import { Fit } from './fit/fit.model';
-import { AngularFirestore } from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireStorage } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FireBaseService {
-  constructor(public db: AngularFirestore) {}
+  constructor(public db: AngularFirestore, private storage: AngularFireStorage) {}
 
-  public getFit(id: string) {
-    this.db.doc('fits/' + id).valueChanges();
+  public getFit(id: string): Observable<Fit> {
+    return this.db.doc<Fit>('fits/' + id).valueChanges();
   }
 
   public gitFighter(id: string): Observable<any> {

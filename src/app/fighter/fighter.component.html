@@ -1,3 +1,11 @@
-<p>
-  fighter works!
-</p>
+<mdb-card>
+    <mdb-card-img style="width: 22rem" [src]="photo"></mdb-card-img>
+    <mdb-card-body *ngIf="currentFighter | async as fighter">
+        <mdb-card-title>
+            <h4>{{ fighter.username }} </h4>
+        </mdb-card-title>
+        <h5>{{ title }}</h5>
+        <mdb-card-text> {{ fighter.powers }} </mdb-card-text>
+        <a href="#" class="btn btn-primary waves-light" mdbWavesEffect>Vote</a>
+    </mdb-card-body>
+</mdb-card>
