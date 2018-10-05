@@ -14,7 +14,21 @@ export class FireBaseService {
     return this.db.doc<Fit>('fits/' + id).valueChanges();
   }
 
-  public gitFighter(id: string): Observable<any> {
+  public getFighter(id: string): Observable<any> {
     return this.db.doc('fighters/' + id).valueChanges();
+  }
+
+  public updateVote(id: string) {
+    return this.db
+      .doc<Fit>('fits/' + id)
+      .collection('votes')
+      .add({});
+  }
+
+  public getVotes(fitId: string) {
+    return this.db
+      .doc<Fit>('fits/' + fitId)
+      .collection('votes')
+      .valueChanges();
   }
 }

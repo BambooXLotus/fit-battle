@@ -24,6 +24,6 @@ export class FighterComponent implements OnInit {
   constructor(private service: FireBaseService) {}
 
   ngOnInit() {
-    this.currentFighter = this.service.gitFighter(this.id);
+    this.currentFighter = this.service.getFighter(this.id);
   }
 }

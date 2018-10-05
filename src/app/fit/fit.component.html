@@ -1,3 +1,14 @@
 <ng-container *ngIf="currentFit | async as fit">
-    <app-fighter [photo]="fit.photo" [id]="fit.fighter.id" [title]="title"></app-fighter>
+    <mdb-card>
+        <mdb-card-img style="width: 22rem" [src]="fit.photo"></mdb-card-img>
+        <mdb-card-body *ngIf="currentFighter | async as fighter">
+            <mdb-card-title>
+                <h4>{{ fighter.username }} </h4>
+            </mdb-card-title>
+            <h5>{{ title }}</h5>
+            <mdb-card-text> {{ fighter.powers }} </mdb-card-text>
+            <h5> {{ (votes | async)?.length }} </h5>
+            <a class="btn btn-primary waves-light" mdbWavesEffect (click)="vote()">Vote</a>
+        </mdb-card-body>
+    </mdb-card>
 </ng-container>

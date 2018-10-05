@@ -5,4 +5,5 @@ export interface Fit {
   fighter: Fighter;
   description: string;
   photo: string;
+  votes: number;
 }

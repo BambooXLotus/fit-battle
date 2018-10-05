@@ -19,6 +19,8 @@ export class FitComponent implements OnInit {
   currentFit: Observable<Fit> | null = null;
   currentFighter: Observable<Fighter> | null = null;
 
+  votes: Observable<any> | null = null;
+
   constructor(private service: FireBaseService) {}
 
   ngOnInit() {
@@ -26,8 +28,13 @@ export class FitComponent implements OnInit {
 
     this.currentFit = this.service.getFit(this.id);
 
-    this.currentFit.subscribe((s) => {
-      this.currentFighter = this.service.gitFighter(s.id);
+    this.currentFit.subscribe((fit) => {
+      this.currentFighter = this.service.getFighter(fit.fighter.id);
+      this.votes = this.service.getVotes(this.id);
     });
+  }
+
+  vote() {
+    this.service.updateVote(this.id);
   }
 }
