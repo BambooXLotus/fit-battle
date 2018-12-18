@@ -35,8 +35,8 @@ export class FitComponent implements OnInit {
   }
 
   vote() {
-    // this.service.updateVote(this.id);
-    this.service.login();
+    this.service.updateVote(this.id);
+    // this.service.login();
   }
 
   uploadPhoto(event) {
